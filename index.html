@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MovieDatabase</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="index.js" defer></script>
     <script
@@ -51,10 +51,6 @@
                 max="2023"
                 id="range" class="slider"
               />
-              <!-- <div class="toggle">
-                <div class="toggle-button" onclick="toggleYearFilter()"></div>
-                <label class="toggle__text" for="">ON</label>
-              </div> -->
               <label class="toggle">
                 <input type="checkbox" unchecked="false" class="toggle-input" onclick="toggleYearFilter(event)">
                 <span class="toggle__slider"></span>
@@ -64,28 +60,7 @@
           </div>
           <div class="movies">
             <i class="fas fa-spinner movies__loading--spinner"></i>
-            <!-- <div class="movie-wrapper">
-              <div class="movie">
-                <figure class="movie__img">
-                  <div class="movie__img--overlay">
-                    <p>More info <i class="fa-solid fa-arrow-right"></i></p>
-                  </div>
-                  <img
-                    class="figure__img"
-                    src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg"
-                    alt=""
-                  />
-                </figure>
-                <h2 class="movie__title">Guardians of the Galaxy Vol. 2</h2>
-                <p class="movie__year">2017</p>
-              </div>
-            </div> -->
           </div>
-          <!-- <div class="reset">
-            <h1 class="reset__title">Could not find any matches related to your search.</h1>
-            <h2 class="reset__desc">Please change the filter or reset it below.</h2>
-            <button class="reset__btn" onclick="resetFilter()">Reset Filter</button>
-          </div> -->
           <div class="movies__cta">
             <h1 class="movies__cta--title">Search for your new favorite films today.</h1>
             </div>
