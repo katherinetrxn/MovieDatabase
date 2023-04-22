@@ -225,7 +225,7 @@ MAIN - MOVIES FILTER
 
 */
 
-.search__result, .movie__title, .movie__year, .main__year--label, .toggle__text, .reset__title, .reset__desc {
+.search__result, .movie__title, .movie__year, .main__year--label, .toggle__text, .reset__title, .reset__desc, .movies__cta--title {
     text-shadow: 1px 1px 2px rgba(128, 123, 112, 0.2);
 }
 
