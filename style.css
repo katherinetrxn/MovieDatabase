@@ -176,6 +176,7 @@ HEADER
     top: 10px;
     right: 24px;
     cursor: pointer;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 /*
@@ -496,7 +497,7 @@ RESET
     background-color: #437ab9;
 }
 
-.reset__btn:active {
+.reset__btn:active, .fa-search:active {
     transform: translate(1px, 1px);
 }
 
