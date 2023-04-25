@@ -50,6 +50,7 @@
                 min="1900"
                 max="2023"
                 id="range" class="slider"
+                onchange="sliderChange()"
               />
               <label class="toggle">
                 <input type="checkbox" unchecked="false" class="toggle-input" onclick="toggleYearFilter(event)">
@@ -58,9 +59,12 @@
               </label>
             </div>
           </div>
-          <div class="movies">
-            <i class="fas fa-spinner movies__loading--spinner"></i>
+          <div class="spinner__wrapper">
+            <div class="movies__loading--spinner">
+              <i class="fas fa-spinner movies__loading--spinner"></i>
+            </div>
           </div>
+          <div class="movies"></div>
           <div class="movies__cta">
             <h1 class="movies__cta--title">Search for your new favorite films today.</h1>
             </div>

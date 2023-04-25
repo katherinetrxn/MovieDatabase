@@ -10,13 +10,13 @@ const releaseDate = document.querySelector("#main__year--label");
 
 output.innerHTML = slider.value;
 
-slider.addEventListener("input", function() {
+function sliderChange() {
   if (filterOn) {
-    output.innerHTML = this.value;
+    output.innerHTML = slider.value;
     releaseDate.innerHTML = `Release Date: <b class="blue">${output.innerHTML}</b>`;
     renderMovies();
   }
-});
+};
 
 function toggleYearFilter(event) {
   filterOn = event.target.checked;
@@ -33,11 +33,11 @@ toggleYearFilter({target: {checked: filterOn}});
 const searchInput = document.querySelector(".search-bar");
 const searchResult = document.querySelector(".search__result");
 const moviesListEl = document.querySelector(".movies");
+const spinnerWrapper = document.querySelector(".spinner__wrapper");
 
 async function renderMovies() {
-  moviesListEl.innerHTML = '' // to clear previous search results to show loading state
-  // except the loading state isn't showing up :(
-  moviesListEl.classList.add('movies__loading');
+  moviesListEl.innerHTML = ''
+  spinnerWrapper.classList.add('movies__loading');
 
   const moviesCTA = document.querySelector('.movies__cta');
   if (moviesCTA) {
@@ -47,44 +47,22 @@ async function renderMovies() {
   let filterString = '';
   if (filterOn) {
     filterString = `&y=${slider.value}`; // add year filter to search query
-  }
+  };
 
   const url = `https://www.omdbapi.com/?i=tt3896198&apikey=74514e3b&s="${searchInput.value}"${filterString}`;
   const response = await fetch(url);
   const moviesData = await response.json();
 
-  console.log(moviesData)
   if (!moviesData.Search) {
-    moviesListEl.classList.remove('movies__loading');
+    spinnerWrapper.classList.remove('movies__loading');
     modifySearchDisplay();
     return moviesNotFound(); // show error message if there are no search results
-  }
-
-  // let filteredMovies = filterOn && searchInput.value ? moviesData.Search.filter(movie => movie.Year === slider.value) : moviesData.Search;
+  };
   
-  let filteredMovies = [];
-
-  // the function i tried making in order to filter by solely movies
-  // it just does the same thing as the ternary operator above though
-
-  if (filterOn && searchInput.value) {
-    filteredMovies = moviesData.Search.filter(movie => {
-      return movie.Year === slider.value && movie.Title.toLowerCase().includes(searchInput.value.toLowerCase());
-    }).slice(0, 6);
-  } else {
-    if (!searchInput.value) {
-      filteredMovies = moviesData.Search.filter(movie => {
-        return movie.Year === slider.value;
-      }).slice(0, 6);
-    } else {
-      filteredMovies = moviesData.Search.filter(movie => {
-        return movie.Title.toLowerCase().includes(searchInput.value.toLowerCase());
-      }).slice(0, 6); // sliced bc i thought it would fix the error: 'too many results' issue. it didn't.
-    }
-  }
+  let filteredMovies = filterOn && searchInput.value ? moviesData.Search.filter(movie => movie.Year === slider.value) : moviesData.Search;
   
   setTimeout(() => {
-    moviesListEl.classList.remove('movies__loading');
+    spinnerWrapper.classList.remove('movies__loading');
     moviesListEl.innerHTML = filteredMovies.map(movie => moviesHTML(movie)).join(''); // render filtered movies
   }, 300);
 
@@ -132,8 +110,7 @@ function moviesNotFound() {
   <button class="reset__btn" onclick="resetFilter()">Reset Filter</button>
 </div>`;
 }
-;
 
 function toggleModal() {
   document.body.classList.toggle("modal--open");
-}
+};

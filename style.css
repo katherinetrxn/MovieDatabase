@@ -196,13 +196,14 @@ LOADING STATE - SPINNER
 
 .movies__loading .movies__loading--spinner {
     z-index: 1;
-    display: block !important;
+    display: flex !important;
     /* when .movies__loading exists, target .movies__loading--spinner */
 }
 
 .movies__loading--spinner {
     z-index: -1;
     display: none !important;
+    font-size: 40px;
 }
 
 .fa-spinner {
