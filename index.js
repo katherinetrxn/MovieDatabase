@@ -13,7 +13,7 @@ output.innerHTML = slider.value;
 function sliderChange() {
   if (filterOn) {
     output.innerHTML = slider.value;
-    releaseDate.innerHTML = `Release Date: <b class="blue">${output.innerHTML}</b>`;
+    releaseDate.innerHTML = `Release Year: <b class="blue">${output.innerHTML}</b>`;
     renderMovies();
   }
 };
@@ -22,7 +22,7 @@ function toggleYearFilter(event) {
   filterOn = event.target.checked;
   renderMovies();
   toggleText.innerHTML = filterOn ? "ON" : "OFF";
-  releaseDate.innerHTML = filterOn ? `Release Year: <b class="blue">${output.innerHTML}</b>` : `Release Date: <b class="blue">N/A</b>`;
+  releaseDate.innerHTML = filterOn ? `Release Year: <b class="blue">${output.innerHTML}</b>` : `Release Year: <b class="blue">N/A</b>`;
 }
 
 let filterOn = false;
