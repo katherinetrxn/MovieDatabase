@@ -203,7 +203,7 @@ LOADING STATE - SPINNER
 .movies__loading--spinner {
     z-index: -1;
     display: none !important;
-    font-size: 40px;
+    font-size: 72px;
 }
 
 .fa-spinner {
