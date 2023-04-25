@@ -64,7 +64,7 @@ async function renderMovies() {
   setTimeout(() => {
     spinnerWrapper.classList.remove('movies__loading');
     moviesListEl.innerHTML = filteredMovies.map(movie => moviesHTML(movie)).join(''); // render filtered movies
-  }, 300);
+  }, 250);
 
   modifySearchDisplay();
 
